@@ -3,7 +3,7 @@ import { mideastData, countryList, indicatorList, CountryID, IndicatorID } from 
 import { translations } from '../translations';
 import { calculateRegression } from '../utils/mathUtils';
 import CustomChart from './CustomChart';
-import { LineChart, Shovel, Play, Calendar, Calculator, Sparkles, TrendingUp } from 'lucide-react';
+import { Calendar, Calculator, Sparkles, TrendingUp } from 'lucide-react';
 
 interface PredictionTabProps {
   currentLang: 'en' | 'fa' | 'tr' | 'az';

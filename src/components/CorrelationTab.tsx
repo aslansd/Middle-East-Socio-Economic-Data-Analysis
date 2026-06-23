@@ -3,7 +3,7 @@ import { mideastData, countryList, indicatorList, CountryID, IndicatorID } from 
 import { translations } from '../translations';
 import { calculateRegression } from '../utils/mathUtils';
 import CustomChart from './CustomChart';
-import { Hash, Compass, Info, FileSpreadsheet, Calculator } from 'lucide-react';
+import { Compass, Info, Calculator } from 'lucide-react';
 
 interface CorrelationTabProps {
   currentLang: 'en' | 'fa' | 'tr' | 'az';
@@ -155,7 +155,7 @@ export default function CorrelationTab({ currentLang }: CorrelationTabProps) {
               <span className="text-[10px] text-gray-400 font-mono block mb-1">{t.labels.regressionEq}</span>
               <div 
                 id="regression-equation-text"
-                className="font-mono text-xs p-2 bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg text-gray-800 dark:text-gray-250 text-center"
+                className="font-mono text-xs p-2 bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-gray-800 rounded-lg text-gray-800 dark:text-gray-300 text-center"
               >
                 y = {regression.slope.toLocaleString(undefined, { maximumFractionDigits: 4 })}x {regression.intercept >= 0 ? '+' : '-'} {Math.abs(regression.intercept).toLocaleString(undefined, { maximumFractionDigits: 2 })}
               </div>
@@ -259,11 +259,11 @@ export default function CorrelationTab({ currentLang }: CorrelationTabProps) {
                 </li>
                 <li className="flex justify-between border-t border-gray-100 dark:border-gray-800/80 pt-1">
                   <span className="text-gray-400">Sum X (&Sigma;X):</span>
-                  <span className="text-gray-650 dark:text-gray-300">{regression.sumX.toLocaleString(undefined, { maximumFractionDigits: 1 })}</span>
+                  <span className="text-gray-600 dark:text-gray-300">{regression.sumX.toLocaleString(undefined, { maximumFractionDigits: 1 })}</span>
                 </li>
                 <li className="flex justify-between">
                   <span className="text-gray-400">Sum Y (&Sigma;Y):</span>
-                  <span className="text-gray-650 dark:text-gray-300">{regression.sumY.toLocaleString(undefined, { maximumFractionDigits: 1 })}</span>
+                  <span className="text-gray-600 dark:text-gray-300">{regression.sumY.toLocaleString(undefined, { maximumFractionDigits: 1 })}</span>
                 </li>
               </ul>
             </div>

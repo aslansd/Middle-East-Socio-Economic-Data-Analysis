@@ -27,7 +27,7 @@ export default function App() {
       id="app-container"
     >
       {/* Top Banner Accent */}
-      <div className="h-1.5 w-full bg-gradient-to-r from-sky-500 via-indigo-505 to-violet-600"></div>
+      <div className="h-1.5 w-full bg-gradient-to-r from-sky-500 via-indigo-500 to-violet-600"></div>
 
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col gap-6">
@@ -64,7 +64,7 @@ export default function App() {
                   onClick={() => setCurrentLang(lang)}
                   className={`px-3 py-1.5 text-xs font-semibold rounded-xl transition-all duration-200 uppercase tracking-wider ${
                     currentLang === lang
-                      ? 'bg-gradient-to-br from-indigo-554 to-indigo-600 bg-indigo-600 text-white shadow-sm'
+                      ? 'bg-gradient-to-br from-indigo-500 to-indigo-600 bg-indigo-600 text-white shadow-sm'
                       : 'text-gray-500 dark:text-gray-400 hover:bg-gray-50 dark:hover:bg-gray-900'
                   }`}
                   title={langLabels[lang].abbr}
@@ -89,7 +89,7 @@ export default function App() {
                 onClick={() => setActiveTab(item.id)}
                 className={`flex items-center gap-2 px-5 py-3 text-xs sm:text-sm font-semibold rounded-2xl transition-all duration-200 whitespace-nowrap border ${
                   isActive
-                    ? 'bg-white dark:bg-gray-950 text-gray-900 dark:text-white border-gray-150/80 dark:border-gray-800/80 shadow-sm font-extrabold'
+                    ? 'bg-white dark:bg-gray-950 text-gray-900 dark:text-white border-gray-200 dark:border-gray-800/80 shadow-sm font-extrabold'
                     : 'text-gray-500 hover:text-gray-900 dark:hover:text-white border-transparent hover:bg-white/50 dark:hover:bg-gray-950/30'
                 }`}
               >

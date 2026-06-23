@@ -3,7 +3,7 @@ import { mideastData, countryList, indicatorList, yearsList, CountryID, Indicato
 import { translations } from '../translations';
 import { calculateDescriptiveStats } from '../utils/mathUtils';
 import CustomChart from './CustomChart';
-import { Sigma, Lightbulb, Calculator, HelpCircle } from 'lucide-react';
+import { Sigma, Calculator } from 'lucide-react';
 
 interface DescriptiveTabProps {
   currentLang: 'en' | 'fa' | 'tr' | 'az';
@@ -61,7 +61,7 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
                 className={`py-1.5 px-3 text-xs font-mono font-bold rounded-lg transition-all duration-200 border ${
                   selectedYear === yr
                     ? 'bg-emerald-50 dark:bg-emerald-950/40 text-emerald-600 dark:text-emerald-400 border-emerald-200 dark:border-emerald-800/60 shadow-sm'
-                    : 'bg-gray-50/50 dark:bg-gray-900/40 text-gray-500 border-transparent hover:bg-gray-100 dark:hover:bg-gray-850/65'
+                    : 'bg-gray-50/50 dark:bg-gray-900/40 text-gray-500 border-transparent hover:bg-gray-100 dark:hover:bg-gray-800/60'
                 }`}
               >
                 {yr}
@@ -199,9 +199,9 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
           {showFormulaDetails && (
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6 p-4 bg-gray-50/50 dark:bg-gray-900/30 rounded-2xl border border-gray-100 dark:border-gray-800 text-xs">
               <div>
-                <div className="font-bold text-gray-400 mb-1">1. {t.labels.mean} (\u03bc)</div>
+                <div className="font-bold text-gray-400 mb-1">1. {t.labels.mean} (μ)</div>
                 <div className="font-mono bg-white dark:bg-gray-950 p-2 rounded-lg border border-gray-100 dark:border-gray-800 text-center mb-1">
-                  \u03bc = \u03a3x_i / N
+                  μ = Σx_i / N
                 </div>
                 <p className="text-[11px] text-gray-400 leading-normal">
                   Sum of all values divided by total count of countries.
@@ -209,9 +209,9 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
               </div>
 
               <div>
-                <div className="font-bold text-gray-400 mb-1">2. {t.labels.stdDev} (\u03c3)</div>
+                <div className="font-bold text-gray-400 mb-1">2. {t.labels.stdDev} (σ)</div>
                 <div className="font-mono bg-white dark:bg-gray-950 p-2 rounded-lg border border-gray-100 dark:border-gray-800 text-center mb-1">
-                  \u03c3 = \u221a[ \u03a3(x_i - \u03bc)\u00b2 / N ]
+                  σ = √[ Σ(x_i - μ)² / N ]
                 </div>
                 <p className="text-[11px] text-gray-400 leading-normal">
                   Square root of population variance, representing average dispersion from the mean.
@@ -226,7 +226,7 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-5 h-5 flex items-center justify-center bg-sky-50 dark:bg-sky-950/50 text-sky-600 dark:text-sky-400 rounded-full font-bold text-[10px]">1</span>
-                <span className="font-bold text-gray-700 dark:text-gray-300">{t.labels.mean} (\u03bc) calculation:</span>
+                <span className="font-bold text-gray-700 dark:text-gray-300">{t.labels.mean} (μ) calculation:</span>
               </div>
               <div className="bg-gray-50/20 dark:bg-gray-900/10 p-3 rounded-xl border border-gray-100 dark:border-gray-800 font-mono text-[11px] leading-relaxed">
                 <div>
@@ -261,7 +261,7 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
                         key={item.countryId} 
                         className={`py-0.5 px-2 border rounded text-[10px] ${
                           isMid 
-                            ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border-amber-250 font-bold'
+                            ? 'bg-amber-50 dark:bg-amber-950/30 text-amber-700 dark:text-amber-400 border-amber-200 font-bold'
                             : 'bg-white dark:bg-gray-950 text-gray-500 border-gray-100 dark:border-gray-900'
                         }`}
                       >
@@ -282,7 +282,7 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
             <div>
               <div className="flex items-center gap-2 mb-2">
                 <span className="w-5 h-5 flex items-center justify-center bg-violet-50 dark:bg-violet-950/50 text-violet-600 dark:text-violet-400 rounded-full font-bold text-[10px]">3</span>
-                <span className="font-bold text-gray-700 dark:text-gray-300">{t.labels.stdDev} (\u03c3) calculation:</span>
+                <span className="font-bold text-gray-700 dark:text-gray-300">{t.labels.stdDev} (σ) calculation:</span>
               </div>
               
               <div className="overflow-x-auto border border-gray-100 dark:border-gray-800/80 rounded-xl">
@@ -291,8 +291,8 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
                     <tr className="bg-gray-50/50 dark:bg-gray-900/60 text-gray-400 uppercase text-[9px] border-b border-gray-100 dark:border-gray-800">
                       <th className="py-2.5 px-4 font-semibold">{t.labels.country}</th>
                       <th className="py-2.5 px-3 font-semibold text-right">x_i</th>
-                      <th className="py-2.5 px-3 font-semibold text-right">x_i - \u03bc</th>
-                      <th className="py-2.5 px-4 font-semibold text-right">(x_i - \u03bc)\u00b2</th>
+                      <th className="py-2.5 px-3 font-semibold text-right">x_i - μ</th>
+                      <th className="py-2.5 px-4 font-semibold text-right">(x_i - μ)²</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -300,7 +300,7 @@ export default function DescriptiveTab({ currentLang }: DescriptiveTabProps) {
                       const diff = item.value - stats.mean;
                       const diffSq = Math.pow(diff, 2);
                       return (
-                        <tr key={item.countryId} className="border-b last:border-none border-gray-55/10 bg-white/50 dark:bg-gray-950/10">
+                        <tr key={item.countryId} className="border-b last:border-none border-gray-100/10 bg-white/50 dark:bg-gray-950/10">
                           <td className="py-2 px-4 text-gray-800 dark:text-gray-200 font-sans font-medium">{item.countryName}</td>
                           <td className="py-2 px-3 text-right">{item.value.toLocaleString(undefined, { maximumFractionDigits: 1 })}</td>
                           <td className="py-2 px-3 text-right text-gray-400">{diff > 0 ? '+' : ''}{diff.toLocaleString(undefined, { maximumFractionDigits: 2 })}</td>

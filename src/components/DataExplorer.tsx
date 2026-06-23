@@ -141,7 +141,7 @@ export default function DataExplorer({ currentLang }: DataExplorerProps) {
                 {countryObj?.years.map((yData, idx) => (
                   <tr 
                     key={yData.year} 
-                    className={`border-b last:border-none border-gray-50 dark:border-gray-850/20 hover:bg-gray-50/20 dark:hover:bg-gray-900/30 text-xs font-mono text-gray-600 dark:text-gray-300 ${
+                    className={`border-b last:border-none border-gray-50 dark:border-gray-800/20 hover:bg-gray-50/20 dark:hover:bg-gray-900/30 text-xs font-mono text-gray-600 dark:text-gray-300 ${
                       idx % 2 === 1 ? 'bg-gray-50/10 dark:bg-gray-900/5' : ''
                     }`}
                   >
