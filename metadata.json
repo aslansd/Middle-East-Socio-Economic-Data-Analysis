@@ -1,0 +1,6 @@
+{
+  "name": "Middle East Socio-Economic Data & Analysis",
+  "description": "An interactive multilingual web application for exploring and analyzing social and economic development indicators in the Middle East with detailed statistical computations.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
